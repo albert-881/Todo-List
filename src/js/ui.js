@@ -1,6 +1,5 @@
 import { todoForm } from "./index";
-import { todos } from "./todo";
-import { addTodo } from "./todo";
+import { myTodos } from "./index";
 
 export function openTodoForm(){
     console.log('this would trigger the opening of the add todo');
@@ -12,12 +11,16 @@ export function closeTodoForm(){
     todoForm.style.display = 'none';
 }
 
-export function submitInfo() {
-    let title = document.querySelector('#title').value;
-    let description = document.querySelector('#description').value;
-    let dueDate = document.querySelector('#due-date').value;
-    let priority = document.querySelector('#priority').value;
+export function displayTodos() {
+    const todoContainer = document.querySelector('#todo-container');
+    todoContainer.innerHTML = '';
+    for (let i = 0; i < myTodos.length; i++) {
+        const newDiv = document.createElement('div');
+        newDiv.innerHTML = `Title: ${myTodos[i].title} <br> 
+        Description: ${myTodos[i].description} <br> 
+        Due Date: ${myTodos[i].dueDate} <br> 
+        Priority: ${myTodos[i].priority}`;
 
-    let newTodo = todos(title,description,dueDate,priority);
-    addTodo(newTodo);
+        todoContainer.append(newDiv);
+    }
 }

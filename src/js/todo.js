@@ -1,4 +1,5 @@
 import { myTodos } from "./index";
+import { displayTodos } from "./ui";
 
 export function todos(title, description, dueDate, priority){
     return {
@@ -15,17 +16,13 @@ export function addTodo(newTodo){
     displayTodos();
 }
 
-export function displayTodos() {
-    const todoContainer = document.querySelector('#todo-container');
-    todoContainer.innerHTML = '';
-    for (let i = 0; i < myTodos.length; i++) {
-        const newDiv = document.createElement('div');
-        newDiv.innerHTML = `Title: ${myTodos[i].title} <br> 
-        Description: ${myTodos[i].description} <br> 
-        Due Date: ${myTodos[i].dueDate} <br> 
-        Priority: ${myTodos[i].priority}`;
+export function submitInfo() {
+    let title = document.querySelector('#title').value;
+    let description = document.querySelector('#description').value;
+    let dueDate = document.querySelector('#due-date').value;
+    let priority = document.querySelector('#priority').value;
 
-        todoContainer.append(newDiv);
-    }
+    let newTodo = todos(title,description,dueDate,priority);
+    addTodo(newTodo);
 }
 
