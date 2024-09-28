@@ -2,6 +2,9 @@ import "../css/styles.css";
 import { todos } from "./todo";
 import { openTodoForm } from "./ui";
 import { closeTodoForm } from "./ui";
+import { submitInfo } from "./ui";
+
+export const myTodos = [];
 
 const firstTodo = todos('tu mama', 'huele', 'a', 'kaka');
 console.log(firstTodo);
@@ -17,4 +20,10 @@ addTodo.addEventListener('click', (e) => {
 const closeTodo = document.querySelector('#close-form');
 closeTodo.addEventListener('click', (e) => {
     closeTodoForm();
+});
+
+const form = document.querySelector('#todo-form');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    submitInfo();
 });
