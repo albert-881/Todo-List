@@ -1,5 +1,6 @@
 import { todoForm } from "./index";
 import { myTodos } from "./index";
+import { projectForm } from "./index";
 
 export function openTodoForm(){
     console.log('this would trigger the opening of the add todo');
@@ -23,4 +24,14 @@ export function displayTodos() {
 
         todoContainer.append(newDiv);
     }
+}
+
+export function openProjectForm(){
+    console.log('this would trigger the opening of the project form');
+    projectForm.style.display = 'block';
+}
+
+export function closeProjectForm(){
+    console.log('this would trigger the closing of the project form');
+    projectForm.style.display = 'none';
 }

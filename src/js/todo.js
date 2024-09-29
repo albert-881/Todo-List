@@ -22,7 +22,7 @@ export function submitInfo() {
     let dueDate = document.querySelector('#due-date').value;
     let priority = document.querySelector('#priority').value;
 
-    let newTodo = todos(title,description,dueDate,priority);
+    let newTodo = todos(title, description, dueDate, priority);
     addTodo(newTodo);
 }
 
