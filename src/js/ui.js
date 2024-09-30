@@ -1,6 +1,7 @@
 import { todoForm } from "./index";
 import { myTodos } from "./index";
 import { projectForm } from "./index";
+import { myProjects } from "./index";
 
 export function openTodoForm(){
     console.log('this would trigger the opening of the add todo');
@@ -34,4 +35,16 @@ export function openProjectForm(){
 export function closeProjectForm(){
     console.log('this would trigger the closing of the project form');
     projectForm.style.display = 'none';
+}
+
+export function displayProjects(){
+    const projectContainer = document.querySelector('#project-container');
+    projectContainer.innerHTML = '';
+    for (let i = 0; i < myProjects.length; i++) {
+        const newDiv = document.createElement('div');
+        newDiv.innerHTML = `Name: ${myProjects[i].name}`;
+
+        projectContainer.append(newDiv);
+    }
+
 }

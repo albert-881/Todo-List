@@ -12,7 +12,6 @@ export function todos(title, description, dueDate, priority){
 
 export function addTodo(newTodo){
     myTodos.push(newTodo);
-    console.log(newTodo);
     displayTodos();
 }
 
