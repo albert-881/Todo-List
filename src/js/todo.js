@@ -13,6 +13,7 @@ export function todos(title, description, dueDate, priority){
 export function addTodo(newTodo){
     myTodos.push(newTodo);
     displayTodos();
+    console.log(myTodos);
 }
 
 export function submitInfo() {

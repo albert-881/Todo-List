@@ -10,6 +10,7 @@ export function createProject(name){
 export function addProject(newProject){
     myProjects.push(newProject);
     displayProjects();
+    console.log(myProjects);
 }
 
 export function submitProject(){
