@@ -3,6 +3,8 @@ import { myTodos } from "./index";
 import { projectForm } from "./index";
 import { myProjects } from "./index";
 
+//***********************************************************************//
+
 export function openTodoForm(){
     console.log('this would trigger the opening of the add todo');
     todoForm.style.display = 'block';
@@ -24,8 +26,21 @@ export function displayTodos() {
         Priority: ${myTodos[i].priority}`;
 
         todoContainer.append(newDiv);
+
+        const btngroup = document.createElement('div');
+        const delBtn = document.createElement('button');
+        delBtn.textContent = 'Delete';
+        delBtn.addEventListener('click', (e) => {
+            myTodos.splice(i, 1); // Remove the todo at index i
+            displayTodos(); 
+        })
+        
+        btngroup.append(delBtn);
+        newDiv.append(btngroup);
     }
 }
+
+//***********************************************************************//
 
 export function openProjectForm(){
     console.log('this would trigger the opening of the project form');
@@ -48,3 +63,5 @@ export function displayProjects(){
     }
 
 }
+
+//***********************************************************************//

@@ -1,6 +1,8 @@
 import { myProjects } from "./index";
 import { displayProjects } from "./ui";
 
+//***********************************************************************//
+
 export function createProject(name){
     return {
         name:name

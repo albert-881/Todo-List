@@ -6,6 +6,8 @@ import { openProjectForm } from "./ui";
 import { closeProjectForm } from "./ui";
 import { submitProject } from "./project";
 
+//***********************************************************************//
+
 export const myTodos = []; //array of all todos
 export const myProjects = []; //array of all projects
 
