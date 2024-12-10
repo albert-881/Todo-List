@@ -16,6 +16,11 @@
 
 .createProject button {
     padding:10px;
-    background-color: black;
+    background-color: blue;
     color:white;
+}
+
+.projects{
+    background-color:lightblue;
+    border: none;
 }

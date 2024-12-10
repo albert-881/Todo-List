@@ -2,7 +2,7 @@ import { todoForm } from "./index";
 import { myTodos } from "./index";
 import { projectForm } from "./index";
 import { myProjects } from "./index";
-
+import "../css/styles.css";
 //***********************************************************************//
 
 export function openTodoForm(){
@@ -57,9 +57,16 @@ export function displayProjects(){
     projectContainer.innerHTML = '';
     for (let i = 0; i < myProjects.length; i++) {
         const newDiv = document.createElement('div');
-        newDiv.innerHTML = `Name: ${myProjects[i].name}`;
 
+        const newButton = document.createElement('button');
+        newButton.innerHTML = `${myProjects[i].name}`;
+
+        newButton.addEventListener('click', (e) => {
+            console.log(`i am ${myProjects[i].name}`);
+        });
+        newDiv.appendChild(newButton);
         projectContainer.append(newDiv);
+        newButton.className = 'projects';
     }
 
 }
