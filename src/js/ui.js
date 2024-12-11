@@ -63,12 +63,42 @@ export function displayProjects(){
 
         newButton.addEventListener('click', (e) => {
             console.log(`i am ${myProjects[i].name}`);
+            edit_delete_create(i);
         });
         newDiv.appendChild(newButton);
         projectContainer.append(newDiv);
         newButton.className = 'projects';
     }
 
+}
+
+export function edit_delete_create(index){
+    const projectContainer = document.querySelector('#project-container');
+
+    const existingButtons = projectContainer.querySelectorAll('.action-button');
+    existingButtons.forEach((button) => button.remove());
+
+    const editBtn = document.createElement('button');
+    const deleteBtn = document.createElement('button');
+    const makeTodo = document.createElement('button');
+
+    editBtn.innerHTML = 'edit';
+    deleteBtn.innerHTML = 'delete';
+    makeTodo.innerHTML = 'make a todo';
+
+    editBtn.className = 'action-button';
+    deleteBtn.className = 'action-button';
+    makeTodo.className = 'action-button';
+    
+    projectContainer.appendChild(makeTodo);
+    projectContainer.appendChild(deleteBtn);
+    projectContainer.appendChild(editBtn);
+
+    deleteBtn.addEventListener('click', (e) => {
+        myProjects.splice(index, 1);
+        displayProjects();
+    });
+    
 }
 
 //***********************************************************************//
