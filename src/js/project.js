@@ -5,8 +5,9 @@ import { displayProjects } from "./ui";
 
 export function createProject(name){
     return {
-        name:name
-    }
+        name:name,
+        todos:[]
+    };
 }
 
 export function addProject(newProject){

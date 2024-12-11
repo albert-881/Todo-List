@@ -15,15 +15,17 @@ export function closeTodoForm(){
     todoForm.style.display = 'none';
 }
 
-export function displayTodos() {
+export function displayTodos(todos) {
+    console.log("Displaying todos:", todos); // Debug log
     const todoContainer = document.querySelector('#todo-container');
     todoContainer.innerHTML = '';
-    for (let i = 0; i < myTodos.length; i++) {
+
+    for (let i = 0; i < todos.length; i++) {
         const newDiv = document.createElement('div');
-        newDiv.innerHTML = `Title: ${myTodos[i].title} <br> 
-        Description: ${myTodos[i].description} <br> 
-        Due Date: ${myTodos[i].dueDate} <br> 
-        Priority: ${myTodos[i].priority}`;
+        newDiv.innerHTML = `Title: ${todos[i].title} <br> 
+        Description: ${todos[i].description} <br> 
+        Due Date: ${todos[i].dueDate} <br> 
+        Priority: ${todos[i].priority}`;
 
         todoContainer.append(newDiv);
 
@@ -31,14 +33,15 @@ export function displayTodos() {
         const delBtn = document.createElement('button');
         delBtn.textContent = 'Delete';
         delBtn.addEventListener('click', (e) => {
-            myTodos.splice(i, 1); // Remove the todo at index i
-            displayTodos(); 
-        })
-        
+            todos.splice(i, 1); // Remove the todo
+            displayTodos(todos); // Update UI
+        });
+
         btngroup.append(delBtn);
         newDiv.append(btngroup);
     }
 }
+
 
 //***********************************************************************//
 
@@ -64,8 +67,10 @@ export function displayProjects(){
         options.innerHTML = 'options';
 
         view.addEventListener('click', (e) => {
-            console.log(`this would open the todos of ${myProjects[i].name}`);
-        });
+            console.log(`Displaying todos for ${myProjects[i].name}`);
+            displayTodos(myProjects[i].todos); // Pass the project's todos
+        });        
+        
         options.addEventListener('click', (e) => {
             console.log(`i am ${myProjects[i].name}`);
             edit_delete_create(i);
@@ -105,6 +110,25 @@ export function edit_delete_create(index){
         displayProjects();
     });
     
+    editBtn.addEventListener('click', (e) => {
+    const newTitle = prompt('Enter new project title:', myProjects[index].title);
+    if (newTitle) {
+        myProjects[index].name = newTitle;
+        displayProjects();
+    }
+    });
+
+    makeTodo.addEventListener('click', (e) => {
+        const title = prompt('Enter a todo title:');
+        const description = prompt('Enter a description:');
+        const dueDate = prompt('Enter a due date (YYYY-MM-DD):');
+        const priority = prompt('Enter priority (High, Medium, Low):');
+    
+        if (title) {
+            const newTodo = { title, description, dueDate, priority };
+            myProjects[index].todos.push(newTodo); // Add to the project's todos array
+        }
+    });
 }
 
 //***********************************************************************//
