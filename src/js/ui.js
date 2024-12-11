@@ -58,16 +58,22 @@ export function displayProjects(){
     for (let i = 0; i < myProjects.length; i++) {
         const newDiv = document.createElement('div');
 
-        const newButton = document.createElement('button');
-        newButton.innerHTML = `${myProjects[i].name}`;
+        const view = document.createElement('button');
+        const options = document.createElement('button');
+        view.innerHTML = `${myProjects[i].name}`
+        options.innerHTML = 'options';
 
-        newButton.addEventListener('click', (e) => {
+        view.addEventListener('click', (e) => {
+            console.log(`this would open the todos of ${myProjects[i].name}`);
+        });
+        options.addEventListener('click', (e) => {
             console.log(`i am ${myProjects[i].name}`);
             edit_delete_create(i);
         });
-        newDiv.appendChild(newButton);
+        newDiv.appendChild(view);
+        newDiv.appendChild(options);
         projectContainer.append(newDiv);
-        newButton.className = 'projects';
+        options.className = 'projects';
     }
 
 }
