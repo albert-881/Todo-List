@@ -11,8 +11,11 @@ import { submitInitialProject } from "./project";
 
 export const myTodos = []; //array of all todos
 export const myProjects = []; //array of all projects
-let initial_project = 'All Tasks';
-submitInitialProject(initial_project);
+startApp();
+function startApp(){
+    const initial_project = 'All Tasks';
+    submitInitialProject(initial_project);
+}
 
 export const todoForm = document.querySelector('#todo-form'); //the todo form is closed by default
 todoForm.style.display = 'none';

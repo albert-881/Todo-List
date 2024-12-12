@@ -2,6 +2,7 @@ import { todoForm } from "./index";
 import { myTodos } from "./index";
 import { projectForm } from "./index";
 import { myProjects } from "./index";
+import { addTodo } from "./todo";
 import "../css/styles.css";
 //***********************************************************************//
 
@@ -127,6 +128,7 @@ export function edit_delete_create(index){
         if (title) {
             const newTodo = { title, description, dueDate, priority };
             myProjects[index].todos.push(newTodo); // Add to the project's todos array
+            addTodo(newTodo);
         }
     });
 }
