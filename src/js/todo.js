@@ -1,5 +1,6 @@
 import { myTodos } from "./index";
 import { displayTodos } from "./ui";
+import { myProjects } from "./index";
 
 //***********************************************************************//
 
@@ -14,7 +15,8 @@ export function todos(title, description, dueDate, priority){
 
 export function addTodo(newTodo){
     myTodos.push(newTodo);
-    displayTodos();
+    myProjects[0].todos.push(newTodo);
+    displayTodos(myTodos);
     console.log(myTodos);
 }
 

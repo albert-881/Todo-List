@@ -22,3 +22,8 @@ export function submitProject(){
     let newProject = createProject(name);
     addProject(newProject);
 }
+
+export function submitInitialProject(projectName){
+    let initial_project = createProject(projectName);
+    addProject(initial_project);
+}
